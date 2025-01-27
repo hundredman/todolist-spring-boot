@@ -1,0 +1,16 @@
+name: todolist-app
+description: Spring Boot To-Do List Application
+regions:
+  - europe-west
+routes:
+  - name: todolist-route
+    path: /
+services:
+  - name: todolist
+    type: web
+    build:
+      type: docker
+      dockerfile: ./Dockerfile
+    env:
+      JAVA_VERSION: 17
+      SPRING_PROFILES_ACTIVE: production
