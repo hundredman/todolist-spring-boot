@@ -40,19 +40,4 @@ public class TodoController {
         todoService.deleteTodo(id);
         return "redirect:/todos";
     }
-
-    @GetMapping("/edit/{id}")
-    public String showEditForm(@PathVariable Long id, Model model) {
-        Todo todo = todoService.getTodoById(id)
-                .orElseThrow(() -> new RuntimeException("Todo not found"));
-        model.addAttribute("todo", todo);
-        return "edit-todo";
-    }
-
-    @PostMapping("/update/{id}")
-    public String updateTodo(@PathVariable Long id, @ModelAttribute Todo todo) {
-        todo.setId(id); // ID 설정
-        todoService.saveTodo(todo); // 저장
-        return "redirect:/todos";
-    }
 }

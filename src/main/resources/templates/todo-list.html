@@ -27,7 +27,6 @@
             <div class="d-flex justify-content-between align-items-center">
                 <span th:class="${todo.completed} ? 'completed' : ''" th:text="${todo.title}"></span>
                 <div>
-                    <a th:href="@{/todos/edit/{id}(id=${todo.id})}" class="btn btn-sm btn-warning">Edit</a>
                     <form th:action="@{/todos/toggle/{id}(id=${todo.id})}" method="post" style="display: inline;">
                         <button type="submit" class="btn btn-sm btn-success">Toggle</button>
                     </form>
